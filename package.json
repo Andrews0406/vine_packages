@@ -6,16 +6,11 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/harikrishnan1296/fm_model.git"
-    },
-    "author": "harikrishnan1296 <harikrishnan.p@mobinius.com> (https://www.npmjs.com/~harikrishnan1296)",
+    "author": "Andrews J<andrewsj0406@gmail.com>",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/harikrishnan1296/fm_model/issues"
     },
-    "homepage": "https://github.com/harikrishnan1296/fm_model#readme",
     "dependencies": {
         "nodemailer": "^6.6.3"
     }
