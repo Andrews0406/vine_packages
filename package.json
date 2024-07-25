@@ -1,0 +1,22 @@
+{
+    "name": "fm_package",
+    "version": "1.4.5",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/harikrishnan1296/fm_model.git"
+    },
+    "author": "harikrishnan1296 <harikrishnan.p@mobinius.com> (https://www.npmjs.com/~harikrishnan1296)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/harikrishnan1296/fm_model/issues"
+    },
+    "homepage": "https://github.com/harikrishnan1296/fm_model#readme",
+    "dependencies": {
+        "nodemailer": "^6.6.3"
+    }
+}
