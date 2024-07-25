@@ -8,9 +8,6 @@
     },
     "author": "Andrews J<andrewsj0406@gmail.com>",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/harikrishnan1296/fm_model/issues"
-    },
     "dependencies": {
         "nodemailer": "^6.6.3"
     }
