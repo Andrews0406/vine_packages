@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_user_activity', {
     user_activity_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     user_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     ip: {
@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "user_id",
+        name: "fk_activity_user",
         using: "BTREE",
         fields: [
           { name: "user_id" },

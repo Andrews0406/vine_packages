@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
-module.exports = function (sequelize, DataTypes) {
-  const vine_user = sequelize.define('vine_user', {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('vine_user', {
     user_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     username: {
@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     phone_number: {
       type: DataTypes.STRING(10),
-      allowNull: true
+      allowNull: false
     },
     image: {
       type: DataTypes.STRING(255),
@@ -44,7 +44,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     },
     user_group_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false
     },
     status: {
@@ -77,7 +77,7 @@ module.exports = function (sequelize, DataTypes) {
         ]
       },
       {
-        name: "user_group_id",
+        name: "fk_user_group",
         using: "BTREE",
         fields: [
           { name: "user_group_id" },
@@ -85,10 +85,4 @@ module.exports = function (sequelize, DataTypes) {
       },
     ]
   });
-
-  vine_user.associate = (models) => {
-    vine_user.belongsTo(models.vine_user_group, { as: 'role', foreignKey: 'user_group_id' });
-  }
-
-  return vine_user;
 };

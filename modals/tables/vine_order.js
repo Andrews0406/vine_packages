@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_order', {
     order_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     customer_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     invoice_no: {
@@ -52,11 +52,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     payment_country_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     payment_zone_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     payment_method: {
@@ -92,11 +92,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     shipping_country_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     shipping_zone_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     shipping_method: {
@@ -116,7 +116,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     order_status_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     tracking: {
@@ -125,6 +125,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     ip: {
       type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    date_deleted: {
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
@@ -138,6 +142,48 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "order_id" },
+        ]
+      },
+      {
+        name: "fk_order_customer",
+        using: "BTREE",
+        fields: [
+          { name: "customer_id" },
+        ]
+      },
+      {
+        name: "fk_order_payment_country",
+        using: "BTREE",
+        fields: [
+          { name: "payment_country_id" },
+        ]
+      },
+      {
+        name: "fk_order_payment_zone",
+        using: "BTREE",
+        fields: [
+          { name: "payment_zone_id" },
+        ]
+      },
+      {
+        name: "fk_order_shipping_country",
+        using: "BTREE",
+        fields: [
+          { name: "shipping_country_id" },
+        ]
+      },
+      {
+        name: "fk_order_shipping_zone",
+        using: "BTREE",
+        fields: [
+          { name: "shipping_zone_id" },
+        ]
+      },
+      {
+        name: "fk_order_status",
+        using: "BTREE",
+        fields: [
+          { name: "order_status_id" },
         ]
       },
     ]

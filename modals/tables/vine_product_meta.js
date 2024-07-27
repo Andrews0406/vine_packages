@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_product_meta', {
     product_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     meta_title: {
@@ -24,6 +24,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_modified: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    date_deleted: {
       type: DataTypes.DATE,
       allowNull: true
     }

@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_customer_login', {
     customer_login_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     customer_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     email: {
@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "customer_id",
+        name: "fk_login_customer",
         using: "BTREE",
         fields: [
           { name: "customer_id" },

@@ -2,17 +2,17 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_product_unit', {
     product_unit_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     product_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     unit_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     conversion_value: {
@@ -24,6 +24,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_modified: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    date_deleted: {
       type: DataTypes.DATE,
       allowNull: true
     }
@@ -41,14 +45,14 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "product_id",
+        name: "fk_unit_product",
         using: "BTREE",
         fields: [
           { name: "product_id" },
         ]
       },
       {
-        name: "unit_id",
+        name: "fk_unit_unit",
         using: "BTREE",
         fields: [
           { name: "unit_id" },

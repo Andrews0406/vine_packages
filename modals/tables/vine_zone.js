@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_zone', {
     zone_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     country_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     name: {
@@ -30,6 +30,10 @@ module.exports = function(sequelize, DataTypes) {
     date_modified: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    date_deleted: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,
@@ -45,7 +49,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "country_id",
+        name: "fk_zone_country",
         using: "BTREE",
         fields: [
           { name: "country_id" },

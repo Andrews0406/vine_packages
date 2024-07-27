@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_user_login', {
     user_login_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     user_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     permission: {
@@ -20,6 +20,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_modified: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    date_deleted: {
       type: DataTypes.DATE,
       allowNull: true
     }
@@ -37,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "user_id",
+        name: "fk_login_user",
         using: "BTREE",
         fields: [
           { name: "user_id" },

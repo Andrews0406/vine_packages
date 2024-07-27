@@ -1,35 +1,27 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_layout_module', {
-    layout_module_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+  return sequelize.define('vine_product_image', {
+    id: {
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
-    layout_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+    product_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: false
     },
-    name: {
+    image: {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    date_added: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_modified: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
     sort_order: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'vine_layout_module',
+    tableName: 'vine_product_image',
     timestamps: false,
     indexes: [
       {
@@ -37,14 +29,14 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "layout_module_id" },
+          { name: "id" },
         ]
       },
       {
-        name: "layout_id",
+        name: "fk_image_product",
         using: "BTREE",
         fields: [
-          { name: "layout_id" },
+          { name: "product_id" },
         ]
       },
     ]

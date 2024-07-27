@@ -2,17 +2,17 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_unit_conversion', {
     unit_conversion_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     from_unit_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     to_unit_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     conversion_value: {
@@ -30,6 +30,10 @@ module.exports = function(sequelize, DataTypes) {
     date_modified: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    date_deleted: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,
@@ -45,14 +49,14 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "from_unit_id",
+        name: "fk_conversion_from_unit",
         using: "BTREE",
         fields: [
           { name: "from_unit_id" },
         ]
       },
       {
-        name: "to_unit_id",
+        name: "fk_conversion_to_unit",
         using: "BTREE",
         fields: [
           { name: "to_unit_id" },

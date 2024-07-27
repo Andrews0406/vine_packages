@@ -2,14 +2,18 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_product_discount', {
     product_discount_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     product_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     price: {
       type: DataTypes.DECIMAL(10,2),
@@ -27,15 +31,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    status: {
-      type: DataTypes.STRING(50),
-      allowNull: true
-    },
     date_added: {
       type: DataTypes.DATE,
       allowNull: true
     },
     date_modified: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    date_deleted: {
       type: DataTypes.DATE,
       allowNull: true
     }
@@ -53,7 +57,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "product_id",
+        name: "fk_discount_product",
         using: "BTREE",
         fields: [
           { name: "product_id" },

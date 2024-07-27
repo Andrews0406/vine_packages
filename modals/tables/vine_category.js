@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_category', {
     category_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     parent_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     name: {
@@ -18,6 +18,10 @@ module.exports = function(sequelize, DataTypes) {
     description: {
       type: DataTypes.TEXT,
       allowNull: true
+    },
+    tags: {
+      type: DataTypes.TEXT,
+      allowNull: false
     },
     image: {
       type: DataTypes.STRING(255),
@@ -36,7 +40,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_modified: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    date_deleted: {
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
@@ -50,6 +58,13 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "category_id" },
+        ]
+      },
+      {
+        name: "fk_parent_category",
+        using: "BTREE",
+        fields: [
+          { name: "parent_id" },
         ]
       },
     ]

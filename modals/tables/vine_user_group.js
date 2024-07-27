@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
-module.exports = function (sequelize, DataTypes) {
-  const vine_user_group = sequelize.define('vine_user_group', {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('vine_user_group', {
     user_group_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     name: {
@@ -17,13 +17,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     date_added: {
       type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
+      allowNull: true
     },
     date_modified: {
       type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
+      allowNull: true
     },
     date_deleted: {
       type: DataTypes.DATE,
@@ -44,5 +42,4 @@ module.exports = function (sequelize, DataTypes) {
       },
     ]
   });
-  return vine_user_group
 };

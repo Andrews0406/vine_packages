@@ -1,39 +1,44 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_recurring_transaction', {
-    recurring_transaction_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+  return sequelize.define('vine_product_sku', {
+    sku_id: {
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
-    recurring_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    order_recurring_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    reference: {
+    sku_code: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: false
     },
-    type: {
+    product_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: false
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    location: {
       type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    amount: {
-      type: DataTypes.DECIMAL(10,2),
       allowNull: true
     },
     date_added: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    date_modified: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    date_deleted: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'vine_recurring_transaction',
+    tableName: 'vine_product_sku',
     timestamps: false,
     indexes: [
       {
@@ -41,14 +46,14 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "recurring_transaction_id" },
+          { name: "sku_id" },
         ]
       },
       {
-        name: "recurring_id",
+        name: "fk_sku_product",
         using: "BTREE",
         fields: [
-          { name: "recurring_id" },
+          { name: "product_id" },
         ]
       },
     ]

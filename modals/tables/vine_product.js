@@ -2,18 +2,10 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_product', {
     product_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
-    },
-    category_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    model: {
-      type: DataTypes.STRING(255),
-      allowNull: true
     },
     name: {
       type: DataTypes.STRING(255),
@@ -23,17 +15,21 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    image: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
     tag: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    sku: {
+    model: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    stock_status_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: false
     },
     sort_order: {
       type: DataTypes.INTEGER,
@@ -48,7 +44,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_modified: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    date_deleted: {
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
@@ -62,6 +62,13 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "product_id" },
+        ]
+      },
+      {
+        name: "fk_product_stock_status",
+        using: "BTREE",
+        fields: [
+          { name: "stock_status_id" },
         ]
       },
     ]

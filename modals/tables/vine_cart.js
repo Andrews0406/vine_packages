@@ -2,21 +2,21 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_cart', {
     cart_id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
     customer_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     product_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     option_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.CHAR(36),
       allowNull: true
     },
     quantity: {
@@ -42,6 +42,27 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "cart_id" },
+        ]
+      },
+      {
+        name: "fk_cart_customer",
+        using: "BTREE",
+        fields: [
+          { name: "customer_id" },
+        ]
+      },
+      {
+        name: "fk_cart_product",
+        using: "BTREE",
+        fields: [
+          { name: "product_id" },
+        ]
+      },
+      {
+        name: "fk_cart_option",
+        using: "BTREE",
+        fields: [
+          { name: "option_id" },
         ]
       },
     ]
