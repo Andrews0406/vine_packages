@@ -31,23 +31,23 @@ var db = {};
 // Export all modal in the current directory
 
 fs.readdirSync(path.join(__dirname, 'tables'))
-  .filter(function(file) {
+  .filter(function (file) {
     return (file.indexOf(".") !== 0) && (file !== "index.js");
   })
-  .forEach(function(file) {
+  .forEach(function (file) {
     var model = require(path.join(__dirname, 'tables', file))(sequelize, Sequelize.DataTypes)
     db[model.name] = model;
   });
 
 
-Object.keys(db).forEach(function(modelName) {
+Object.keys(db).forEach(function (modelName) {
   if ("associate" in db[modelName]) {
     db[modelName].associate(db);
   }
 });
 
-
-sequelize.sync({ });
+console.log({ sequelize });
+sequelize.sync({});
 
 
 db.sequelize = sequelize;
