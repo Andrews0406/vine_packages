@@ -49,14 +49,14 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "fk_conversion_from_unit",
+        name: "from_unit_id",
         using: "BTREE",
         fields: [
           { name: "from_unit_id" },
         ]
       },
       {
-        name: "fk_conversion_to_unit",
+        name: "to_unit_id",
         using: "BTREE",
         fields: [
           { name: "to_unit_id" },

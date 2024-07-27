@@ -33,14 +33,14 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "fk_order_history_order",
+        name: "order_id",
         using: "BTREE",
         fields: [
           { name: "order_id" },
         ]
       },
       {
-        name: "fk_order_history_status",
+        name: "order_status_id",
         using: "BTREE",
         fields: [
           { name: "order_status_id" },
