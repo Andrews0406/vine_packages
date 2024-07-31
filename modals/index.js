@@ -27,9 +27,7 @@ var sequelize = new Sequelize(
   }
 );
 var db = {};
-
 // Export all modal in the current directory
-
 fs.readdirSync(path.join(__dirname, 'tables'))
   .filter(function (file) {
     return (file.indexOf(".") !== 0) && (file !== "index.js");
@@ -38,19 +36,11 @@ fs.readdirSync(path.join(__dirname, 'tables'))
     var model = require(path.join(__dirname, 'tables', file))(sequelize, Sequelize.DataTypes)
     db[model.name] = model;
   });
-
-
 Object.keys(db).forEach(function (modelName) {
   if ("associate" in db[modelName]) {
     db[modelName].associate(db);
   }
 });
-
-console.log({ sequelize });
 sequelize.sync({});
-
-
 db.sequelize = sequelize;
-// db.Sequelize = Sequelize;
-
 module.exports = db;
