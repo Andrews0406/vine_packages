@@ -30,12 +30,10 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     indexes: [
       {
-        name: "PRIMARY",
-        unique: true,
+        name: "product_id",
         using: "BTREE",
         fields: [
           { name: "product_id" },
-          { name: "category_id" },
         ]
       },
       {
