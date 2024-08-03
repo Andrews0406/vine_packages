@@ -22,18 +22,6 @@ module.exports = function(sequelize, DataTypes) {
     status: {
       type: DataTypes.STRING(50),
       allowNull: true
-    },
-    date_added: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_modified: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_deleted: {
-      type: DataTypes.DATE,
-      allowNull: true
     }
   }, {
     sequelize,

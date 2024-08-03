@@ -19,24 +19,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(3),
       allowNull: true
     },
-    address_format: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    postcode_required: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true
-    },
     status: {
       type: DataTypes.STRING(50),
-      allowNull: true
-    },
-    date_added: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_modified: {
-      type: DataTypes.DATEONLY,
       allowNull: true
     }
   }, {
