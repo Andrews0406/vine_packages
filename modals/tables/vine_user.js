@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_user', {
+module.exports = function (sequelize, DataTypes) {
+  const vine_user = sequelize.define('vine_user', {
     user_id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
@@ -85,4 +85,10 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+
+  vine_user.associate = (models) => {
+    vine_user.belongsTo(models.vine_user_group, { as: 'role', foreignKey: 'user_group_id' });
+  }
+
+  return vine_user;
 };

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_product', {
+module.exports = function (sequelize, DataTypes) {
+  const vine_product = sequelize.define('vine_product', {
     product_id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
@@ -73,4 +73,12 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  vine_product.associate = (models) => {
+    vine_product.belongsTo(models.vine_product_meta, { as: 'product_meta', foreignKey: 'product_id' });
+    vine_product.hasMany(models.vine_product_category, { as: 'product_category', foreignKey: 'product_id' });
+    vine_product.hasMany(models.vine_product_specification, { as: 'product_specification', foreignKey: 'product_id' });
+    vine_product.hasMany(models.vine_product_discount, { as: 'product_discount', foreignKey: 'product_id' });
+    vine_product.hasMany(models.vine_product_sku, { as: 'product_sku', foreignKey: 'product_id' });
+  };
+  return vine_product;
 };
