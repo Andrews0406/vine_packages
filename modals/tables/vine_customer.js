@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_customer', {
+module.exports = function (sequelize, DataTypes) {
+  const vine_customer = sequelize.define('vine_customer', {
     customer_id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
@@ -58,4 +58,8 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  vine_customer.associate = (models) => {
+    vine_customer.belongsTo(models.vine_address, { as: 'address', foreignKey: 'customer_id' });
+  };
+  return vine_customer;
 };
