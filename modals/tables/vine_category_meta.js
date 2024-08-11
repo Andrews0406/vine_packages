@@ -4,7 +4,6 @@ module.exports = function(sequelize, DataTypes) {
     category_id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('uuid'),
     },
     meta_title: {
       type: DataTypes.STRING(255),
@@ -36,8 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     indexes: [
       {
-        name: "PRIMARY",
-        unique: true,
+        name: "category_id",
         using: "BTREE",
         fields: [
           { name: "category_id" },

@@ -4,7 +4,6 @@ module.exports = function(sequelize, DataTypes) {
     product_id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('uuid'),
     },
     meta_title: {
       type: DataTypes.STRING(255),
