@@ -70,10 +70,9 @@ module.exports = function (sequelize, DataTypes) {
     ]
   });
   vine_category.associate = (models) => {
-    vine_category.belongsTo(models.vine_category_meta, { as: 'category_meta', foreignKey: 'category_id' });
-    vine_category.belongsTo(models.vine_category, { as: 'parent', foreignKey: 'parent_id' });
-    vine_category.hasMany(models.vine_category, { as: 'children', foreignKey: 'parent_id' });
-  }
-
+    vine_category.belongsTo(models.vine_category_meta, { as: 'category_meta', foreignKey: 'category_id', targetKey: 'category_id' });
+    vine_category.belongsTo(models.vine_category, { as: 'parent', foreignKey: 'parent_id', targetKey: 'category_id' });
+    vine_category.hasMany(models.vine_category, { as: 'children', foreignKey: 'parent_id', targetKey: 'category_id' });
+  };
   return vine_category;
 };
