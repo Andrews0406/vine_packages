@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     category_id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
+      unique: true,
     },
     meta_title: {
       type: DataTypes.STRING(255),
