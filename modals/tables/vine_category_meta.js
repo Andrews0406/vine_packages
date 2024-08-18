@@ -1,6 +1,12 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_category_meta', {
+    category_meta_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('uuid'),
+      primaryKey: true
+    },
     category_id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
