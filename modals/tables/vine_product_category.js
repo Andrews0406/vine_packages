@@ -1,16 +1,19 @@
 const Sequelize = require('sequelize');
 module.exports = function (sequelize, DataTypes) {
   const vine_product_category = sequelize.define('vine_product_category', {
-    product_id: {
+    id: {
       type: DataTypes.CHAR(36),
       allowNull: false,
       defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
+     product_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: false
+    },
     category_id: {
       type: DataTypes.CHAR(36),
-      allowNull: false,
-      primaryKey: true
+      allowNull: false
     },
     date_added: {
       type: DataTypes.DATE,
