@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: Sequelize.Sequelize.fn('uuid'),
       primaryKey: true
     },
-     product_id: {
+    product_id: {
       type: DataTypes.CHAR(36),
       allowNull: false
     },
@@ -49,7 +49,8 @@ module.exports = function (sequelize, DataTypes) {
     ]
   });
   vine_product_category.associate = (models) => {
-    vine_product_category.belongsTo(models.vine_category, { as: 'category', foreignKey: 'category_id' });
+    vine_product_category.belongsTo(models.vine_product, { foreignKey: 'product_id', as: 'product' });
+    vine_product_category.belongsTo(models.vine_category, { foreignKey: 'category_id', as: 'category' });
   }
   return vine_product_category;
 };
