@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_added: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     }
   }, {

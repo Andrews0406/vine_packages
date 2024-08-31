@@ -11,20 +11,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: true
     },
-    permission: {
+    ip: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
     date_added: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_modified: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_deleted: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     }
   }, {

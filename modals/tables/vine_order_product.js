@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('vine_order_product', {
     order_product_id: {
       type: DataTypes.UUID,
@@ -23,28 +23,36 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    price: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true
+    },
+    sku_code: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    price: {
-      type: DataTypes.DECIMAL(10,2),
+    discount_price: {
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: true
     },
     total: {
-      type: DataTypes.DECIMAL(10,2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: true
     },
     date_added: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     },
     date_modified: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     },
     date_deleted: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     }
   }, {

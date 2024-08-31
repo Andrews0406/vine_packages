@@ -24,11 +24,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_start: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     },
     date_end: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     },
     sort_order: {
@@ -40,15 +40,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_added: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     },
     date_modified: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     },
     date_deleted: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     }
   }, {

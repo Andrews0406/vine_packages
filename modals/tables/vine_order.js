@@ -107,10 +107,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL(10,2),
       allowNull: true
     },
-    order_status_id: {
-      type: DataTypes.CHAR(36),
-      allowNull: true
-    },
     tracking: {
       type: DataTypes.STRING(255),
       allowNull: true
