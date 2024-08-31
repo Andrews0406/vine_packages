@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_user_activity', {
     user_activity_id: {
-      type: DataTypes.CHAR(36),
+      type: DataTypes.UUID,
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('uuid'),
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
     user_id: {

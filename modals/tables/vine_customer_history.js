@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_customer_history', {
     customer_history_id: {
-      type: DataTypes.CHAR(36),
+      type: DataTypes.UUID,
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('uuid'),
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
     customer_id: {

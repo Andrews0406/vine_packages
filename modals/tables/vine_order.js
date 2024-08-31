@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('vine_order', {
     order_id: {
-      type: DataTypes.CHAR(36),
+      type: DataTypes.UUID,
       allowNull: false,
-      defaultValue: Sequelize.Sequelize.fn('uuid'),
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
     customer_id: {
@@ -17,14 +17,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     invoice_prefix: {
       type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    date_added: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_modified: {
-      type: DataTypes.DATE,
       allowNull: true
     },
     payment_firstname: {
@@ -127,8 +119,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    date_added: {
+      type: DataTypes.TIMESTAMP,
+      allowNull: true
+    },
+    date_modified: {
+      type: DataTypes.TIMESTAMP,
+      allowNull: true
+    },
     date_deleted: {
-      type: DataTypes.DATE,
+      type: DataTypes.TIMESTAMP,
       allowNull: true
     }
   }, {
