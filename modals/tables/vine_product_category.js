@@ -16,15 +16,15 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     date_added: {
-      type: DataTypes.TIMESTAMP,
+      type: DataTypes.DATE,
       allowNull: true
     },
     date_modified: {
-      type: DataTypes.TIMESTAMP,
+      type: DataTypes.DATE,
       allowNull: true
     },
     date_deleted: {
-      type: DataTypes.TIMESTAMP,
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {

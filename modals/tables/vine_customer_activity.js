@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     date_added: {
-      type: DataTypes.TIMESTAMP,
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
