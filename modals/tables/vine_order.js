@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_order', {
+module.exports = function (sequelize, DataTypes) {
+  const vine_order = sequelize.define('vine_order', {
     order_id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -104,7 +104,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     total: {
-      type: DataTypes.DECIMAL(10,2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: true
     },
     tracking: {
@@ -177,4 +177,9 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  vine_order.associate = (models) => {
+    vine_order.belongsToMany(models.vine_order_status, { through: models.vine_order_history, as: 'order_status', foreignKey: 'order_id', otherKey: 'order_status_id' });
+    vine_order.hasMany(models.vine_order_product, { as: 'order_products', foreignKey: 'order_id' });
+  };
+  return vine_order;
 };
