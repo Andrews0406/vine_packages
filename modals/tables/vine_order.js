@@ -175,13 +175,6 @@ module.exports = function(sequelize, DataTypes) {
           { name: "shipping_zone_id" },
         ]
       },
-      {
-        name: "fk_order_status",
-        using: "BTREE",
-        fields: [
-          { name: "order_status_id" },
-        ]
-      },
     ]
   });
 };
