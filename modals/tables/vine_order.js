@@ -177,6 +177,7 @@ module.exports = function (sequelize, DataTypes) {
     ]
   });
   vine_order.associate = (models) => {
+    vine_order.belongsTo(models.vine_customer, { as: 'order_customer', foreignKey: 'customer_id' });
     vine_order.belongsToMany(models.vine_order_status, { through: models.vine_order_history, as: 'order_status', foreignKey: 'order_id', otherKey: 'order_status_id' });
     vine_order.hasMany(models.vine_order_product, { as: 'order_product', foreignKey: 'order_id' });
   };
