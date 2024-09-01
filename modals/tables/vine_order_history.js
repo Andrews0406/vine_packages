@@ -1,6 +1,5 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_order_history', {
+module.exports = function (sequelize, DataTypes) {
+  const vine_order_history = sequelize.define('vine_order_history', {
     order_history_id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -48,4 +47,9 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  vine_order_history.associate = (models) => {
+    vine_order_history.belongsTo(models.vine_order, { foreignKey: 'order_id', as: 'order' });
+    vine_order_history.belongsTo(models.vine_order_status, { foreignKey: 'order_status_id', as: 'order_history' });
+  }
+  return vine_order_history;
 };
