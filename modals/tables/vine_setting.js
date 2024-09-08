@@ -7,11 +7,11 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true
     },
     name: {
-      type: DataTypes.Text,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     value: {
-      type: DataTypes.Text,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     date_added: {

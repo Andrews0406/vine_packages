@@ -11,11 +11,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     question: {
-      type: DataTypes.Text,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     answer: {
-      type: DataTypes.Text,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     date_added: {
