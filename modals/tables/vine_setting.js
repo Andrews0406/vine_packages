@@ -6,6 +6,10 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
+    category: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
     name: {
       type: DataTypes.TEXT,
       allowNull: false
