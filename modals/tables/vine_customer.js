@@ -39,6 +39,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(50),
       allowNull: true
     },
+    code: {
+      type: DataTypes.STRING(6),
+      allowNull: true
+    },
     date_added: {
       type: DataTypes.DATE,
       allowNull: true
