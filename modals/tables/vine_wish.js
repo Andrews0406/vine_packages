@@ -1,6 +1,6 @@
-module.exports = function (sequelize, DataTypes) {
-  const vine_cart = sequelize.define('vine_cart', {
-    cart_id: {
+module.exports = function(sequelize, DataTypes) {
+  const vine_wish =  sequelize.define('vine_wish', {
+    wish_id: {
       type: DataTypes.UUID,
       allowNull: false,
       defaultValue: DataTypes.UUIDV4,
@@ -14,21 +14,13 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: true
     },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
     date_added: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    date_modified: {
       type: DataTypes.DATE,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'vine_cart',
+    tableName: 'vine_wish',
     timestamps: false,
     indexes: [
       {
@@ -55,8 +47,8 @@ module.exports = function (sequelize, DataTypes) {
       }
     ]
   });
-  vine_cart.associate = (models) => {
-    vine_cart.hasMany(models.vine_product, { as: 'product', foreignKey: 'product_id' });
+  vine_wish.associate = (models) => {
+    vine_wish.hasMany(models.vine_product, { as: 'product', foreignKey: 'product_id' });
   };
-  return vine_cart;
-}
+  return vine_wish;
+};
