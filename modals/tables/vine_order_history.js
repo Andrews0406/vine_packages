@@ -49,7 +49,7 @@ module.exports = function (sequelize, DataTypes) {
   });
   vine_order_history.associate = (models) => {
     vine_order_history.belongsTo(models.vine_order, { foreignKey: 'order_id', as: 'order' });
-    vine_order_history.belongsTo(models.vine_order_status, { foreignKey: 'order_status_id', as: 'order_history' });
+    vine_order_history.belongsTo(models.vine_order_status, { foreignKey: 'order_status_id', as: 'order_status' });
   }
   return vine_order_history;
 };
