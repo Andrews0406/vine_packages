@@ -48,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
     ]
   });
   vine_wish.associate = (models) => {
-    vine_wish.hasMany(models.vine_product, { as: 'product', foreignKey: 'product_id' });
+    vine_wish.belongsTo(models.vine_product, { as: 'product', foreignKey: 'product_id' });
   };
   return vine_wish;
 };
