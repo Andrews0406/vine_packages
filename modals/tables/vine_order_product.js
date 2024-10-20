@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('vine_order_product', {
+  const vine_order_product = sequelize.define('vine_order_product', {
     order_product_id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -84,4 +84,8 @@ module.exports = function (sequelize, DataTypes) {
       },
     ]
   });
+  vine_order_product.associate = (models) => {
+    vine_order_product.hasMany(models.vine_order_product_review, { as: 'review', foreignKey: 'product_id', sourceKey: "product_id", on: { product_id: Sequelize.col('vine_order_product_review.product_id'), order_id: Sequelize.col('vine_order_product_review.order_id') } });
+  }
+  return vine_order_product;
 };
