@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('vine_faq_category', {
+  const vine_faq_category =  sequelize.define('vine_faq_category', {
     faq_cat_id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -37,4 +37,8 @@ module.exports = function (sequelize, DataTypes) {
       },
     ]
   });
+  vine_faq_category.associate = (models) => {
+    vine_faq_category.hasMany(models.vine_faq, { as: 'faq', foreignKey: 'faq_cat_id' });
+  };
+  return vine_faq_category;
 };
