@@ -22,8 +22,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    price: {
-      type: DataTypes.INTEGER,
+    value: {
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false
     },
     url_alias: {
