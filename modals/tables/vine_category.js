@@ -27,6 +27,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    url_alias: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: true
+    },
     sort_order: {
       type: DataTypes.INTEGER,
       allowNull: true
@@ -58,6 +63,13 @@ module.exports = function (sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "category_id" },
+        ]
+      },
+      {
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "url_alias" },
         ]
       },
       {

@@ -11,13 +11,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: true
     },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     price: {
       type: DataTypes.DECIMAL(10,2),
       allowNull: true
+    },
+    discount_type: {
+      type: DataTypes.STRING(50),
+      allowNull: false
     },
     date_start: {
       type: DataTypes.DATE,

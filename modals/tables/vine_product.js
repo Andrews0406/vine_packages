@@ -26,6 +26,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    url_alias: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: true
+    },
     stock_status_id: {
       type: DataTypes.CHAR(36),
       allowNull: false
@@ -61,6 +66,13 @@ module.exports = function (sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "product_id" },
+        ]
+      },
+      {
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "url_alias" },
         ]
       },
       {
