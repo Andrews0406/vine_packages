@@ -1,6 +1,5 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('vine_address', {
+module.exports = function (sequelize, DataTypes) {
+  const vine_address = sequelize.define('vine_address', {
     address_id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -91,4 +90,8 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  vine_address.associate = (models) => {
+    vine_address.belongsTo(models.vine_zone, { as: 'state', foreignKey: 'zone_id' });
+  }
+  return vine_address;
 };
