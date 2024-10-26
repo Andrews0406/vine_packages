@@ -178,6 +178,8 @@ module.exports = function (sequelize, DataTypes) {
   });
   vine_order.associate = (models) => {
     vine_order.belongsTo(models.vine_customer, { as: 'order_customer', foreignKey: 'customer_id' });
+    vine_order.belongsTo(models.vine_zone, { as: 'billing_state', foreignKey: 'payment_zone_id' });
+    vine_order.belongsTo(models.vine_zone, { as: 'shipping_state', foreignKey: 'shipping_zone_id' });
     vine_order.belongsTo(models.vine_payment_methods, { as: 'order_payment_method', foreignKey: 'payment_method' });
     vine_order.belongsTo(models.vine_shipping_methods, { as: 'order_shipping_method', foreignKey: 'shipping_method' });
     vine_order.hasMany(models.vine_order_history, { as: 'order_history', foreignKey: 'order_id' });
