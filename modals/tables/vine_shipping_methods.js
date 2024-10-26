@@ -26,6 +26,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TIME,
       allowNull: true
     },
+    sort_order: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     status: {
       type: DataTypes.INTEGER,
       allowNull: true
