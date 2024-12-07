@@ -22,11 +22,9 @@ DB.prototype._get = async (
   distinct = false,
   col = "",
   subquery = true,
-  deletedAt = true
 ) => {
   try {
-    let query = { where: { deletedAt: null } };
-    if (!deletedAt) query = {}
+    let query = { where: {} };
     if (!subquery) query["subquery"] = false;
 
     let perpage = 10;
@@ -114,7 +112,7 @@ DB.prototype._find = async (
   includes = []
 ) => {
   try {
-    let query = { where: { deletedAt: null } };
+    let query = { where: {} };
 
     query["where"] = whereClause(projection, query);
 
@@ -169,7 +167,7 @@ DB.prototype._delete = async (model, projection = {}) => {
   try {
     let query = !!Object.keys(projection).length ? whereClause(projection) : {};
 
-    await model.update({ deletedAt: new Date() }, { where: query });
+    await model.update({}, { where: query });
   } catch (error) {
     console.log(error);
     if (error["errors"] && error["errors"][0]) {
