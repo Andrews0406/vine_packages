@@ -55,7 +55,7 @@ module.exports = function (sequelize, DataTypes) {
         ]
     });
     vine_plan_freq.associate = (models) => {
-        vine_plan_freq.hasMany(models.vine_plan, { as: 'vine_plan', foreignKey: 'plan_freq_id' });
+        vine_plan_freq.hasMany(models.vine_plan, { as: 'plan', foreignKey: 'plan_freq_id' });
     };
     return vine_plan_freq;
 };
