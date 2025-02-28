@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const vine_address = sequelize.define('vine_address', {
+  return sequelize.define('vine_address', {
     address_id: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -10,19 +10,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: true
     },
-    first_name: {
+    place: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    last_name: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    address_1: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    address_2: {
+    neighborhood: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -34,12 +26,20 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    zone_id: {
-      type: DataTypes.CHAR(36),
+    province: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    country_id: {
-      type: DataTypes.CHAR(36),
+    country: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    lat: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    lng: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     date_added: {
@@ -90,8 +90,4 @@ module.exports = function (sequelize, DataTypes) {
       },
     ]
   });
-  vine_address.associate = (models) => {
-    vine_address.belongsTo(models.vine_zone, { as: 'state', foreignKey: 'zone_id' });
-  }
-  return vine_address;
 };

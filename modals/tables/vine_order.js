@@ -6,10 +6,6 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true
     },
-    customer_id: {
-      type: DataTypes.CHAR(36),
-      allowNull: true
-    },
     invoice_no: {
       type: DataTypes.STRING(255),
       allowNull: true
@@ -18,19 +14,31 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_firstname: {
+    customer_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: true
+    },
+    firstname: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_lastname: {
+    lastname: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_address_1: {
+    email: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_address_2: {
+    phone: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    payment_place: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    payment_neighborhood: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -42,12 +50,20 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_country_id: {
-      type: DataTypes.CHAR(36),
+    payment_province: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_zone_id: {
-      type: DataTypes.CHAR(36),
+    payment_country: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    payment_lat: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    payment_lng: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     payment_method: {
@@ -58,19 +74,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    shipping_firstname: {
+    shipping_place: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    shipping_lastname: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    shipping_address_1: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    shipping_address_2: {
+    shipping_neighborhood: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
@@ -82,12 +90,20 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    shipping_country_id: {
-      type: DataTypes.CHAR(36),
+    shipping_province: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    shipping_zone_id: {
-      type: DataTypes.CHAR(36),
+    shipping_country: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    shipping_lat: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    shipping_lng: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     shipping_method: {
@@ -146,40 +162,10 @@ module.exports = function (sequelize, DataTypes) {
           { name: "customer_id" },
         ]
       },
-      {
-        name: "fk_order_payment_country",
-        using: "BTREE",
-        fields: [
-          { name: "payment_country_id" },
-        ]
-      },
-      {
-        name: "fk_order_payment_zone",
-        using: "BTREE",
-        fields: [
-          { name: "payment_zone_id" },
-        ]
-      },
-      {
-        name: "fk_order_shipping_country",
-        using: "BTREE",
-        fields: [
-          { name: "shipping_country_id" },
-        ]
-      },
-      {
-        name: "fk_order_shipping_zone",
-        using: "BTREE",
-        fields: [
-          { name: "shipping_zone_id" },
-        ]
-      },
     ]
   });
   vine_order.associate = (models) => {
     vine_order.belongsTo(models.vine_customer, { as: 'order_customer', foreignKey: 'customer_id' });
-    vine_order.belongsTo(models.vine_zone, { as: 'billing_state', foreignKey: 'payment_zone_id' });
-    vine_order.belongsTo(models.vine_zone, { as: 'shipping_state', foreignKey: 'shipping_zone_id' });
     vine_order.belongsTo(models.vine_payment_methods, { as: 'order_payment_method', foreignKey: 'payment_method' });
     vine_order.belongsTo(models.vine_shipping_methods, { as: 'order_shipping_method', foreignKey: 'shipping_method' });
     vine_order.hasMany(models.vine_order_history, { as: 'order_history', foreignKey: 'order_id' });
