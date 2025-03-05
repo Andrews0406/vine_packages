@@ -35,10 +35,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.SMALLINT,
             defaultValue: 0,
         },
-        set_harvest_day: {
-            type: DataTypes.SMALLINT,
-            defaultValue: 0,
-        },
         service_fee: {
             type: DataTypes.SMALLINT,
             defaultValue: 0,
