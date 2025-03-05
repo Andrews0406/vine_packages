@@ -35,6 +35,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    set_harvest_day: {
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
     status: {
       type: DataTypes.STRING(50),
       allowNull: true
