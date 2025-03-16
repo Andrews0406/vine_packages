@@ -14,10 +14,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    neighborhood: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
     city: {
       type: DataTypes.STRING(255),
       allowNull: true

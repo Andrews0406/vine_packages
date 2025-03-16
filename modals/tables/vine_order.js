@@ -38,10 +38,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_neighborhood: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
     payment_city: {
       type: DataTypes.STRING(255),
       allowNull: true
@@ -75,10 +71,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     },
     shipping_place: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    shipping_neighborhood: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
