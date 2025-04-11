@@ -1,6 +1,5 @@
-const Sequelize = require('sequelize');
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('vine_plan', {
+    const vine_plan = sequelize.define('vine_plan', {
         plan_id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -86,4 +85,8 @@ module.exports = function (sequelize, DataTypes) {
             },
         ]
     });
+    vine_plan.associate = (models) => {
+        vine_plan.belongsTo(models.vine_plan_freq, { as: 'plan_freq', foreignKey: 'plan_freq_id' });
+    };
+    return vine_plan;
 };

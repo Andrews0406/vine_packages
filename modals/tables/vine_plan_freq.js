@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const vine_plan_freq = sequelize.define('vine_plan_freq', {
+    return sequelize.define('vine_plan_freq', {
         plan_freq_id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -54,8 +54,4 @@ module.exports = function (sequelize, DataTypes) {
             },
         ]
     });
-    vine_plan_freq.associate = (models) => {
-        vine_plan_freq.hasMany(models.vine_plan, { as: 'plan', foreignKey: 'plan_freq_id' });
-    };
-    return vine_plan_freq;
 };
