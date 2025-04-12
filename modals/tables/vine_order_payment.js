@@ -8,7 +8,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     order_id: {
       type: DataTypes.CHAR(36),
-      allowNull: true
+      allowNull: false
+    },
+    ticket: {
+      type: DataTypes.TEXT,
+      allowNull: false
     },
     order_response: {
       type: DataTypes.TEXT,
