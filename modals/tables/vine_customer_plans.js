@@ -26,6 +26,14 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING(50),
             allowNull: false
         },
+        billing_address_id: {
+            type: DataTypes.CHAR(36),
+            allowNull: true
+        },
+        payment_method_id: {
+            type: DataTypes.CHAR(36),
+            allowNull: true
+        },
         date_added: {
             type: DataTypes.DATE,
             allowNull: false
