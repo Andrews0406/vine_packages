@@ -36,15 +36,15 @@ module.exports = function (sequelize, DataTypes) {
         },
         date_added: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
         date_modified: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
         date_deleted: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: true
         },
     }, {
         sequelize,
