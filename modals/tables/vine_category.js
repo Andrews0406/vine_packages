@@ -36,6 +36,14 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
+    is_top: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    is_footer: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     status: {
       type: DataTypes.STRING(50),
       allowNull: true
