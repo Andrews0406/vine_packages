@@ -87,6 +87,7 @@ module.exports = function (sequelize, DataTypes) {
     });
     vine_plan.associate = (models) => {
         vine_plan.belongsTo(models.vine_plan_freq, { as: 'plan_freq', foreignKey: 'plan_freq_id' });
+        vine_plan.hasOne(models.vine_customer_plans, { as: 'cust_plan', foreignKey: 'plan_id' });
     };
     return vine_plan;
 };
