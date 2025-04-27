@@ -92,6 +92,7 @@ module.exports = function (sequelize, DataTypes) {
     vine_product.hasMany(models.vine_product_sku, { as: 'product_sku', foreignKey: 'product_id' });
     vine_product.hasMany(models.vine_product_image, { as: 'product_image', foreignKey: 'product_id' });
     vine_product.hasMany(models.vine_order_product_review, { as: 'product_review', foreignKey: 'product_id' });
+    vine_product.hasOne(models.vine_product_subscription_option, { as: 'product_subscription_option', foreignKey: 'product_id' });
   };
   return vine_product;
 };
