@@ -14,6 +14,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: true
     },
+    customer_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: true
+    },
     period: {
       type: DataTypes.VARCHAR(50),
       allowNull: true
@@ -55,6 +59,13 @@ module.exports = function (sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "product_id" },
+        ]
+      },
+      {
+        name: "customer_id",
+        using: "BTREE",
+        fields: [
+          { name: "customer_id" },
         ]
       },
     ]
