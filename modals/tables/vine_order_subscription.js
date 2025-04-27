@@ -14,16 +14,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: true
     },
-    quantity: {
-      type: DataTypes.JSON,
-      allowNull: true
-    },
     period: {
-      type: DataTypes.JSON,
-      allowNull: true
-    },
-    amount: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.VARCHAR(50),
       allowNull: true
     },
     status: {
