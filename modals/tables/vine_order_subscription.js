@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     },
     period: {
-      type: DataTypes.VARCHAR(50),
+      type: DataTypes.STRING(50),
       allowNull: true
     },
     status: {
