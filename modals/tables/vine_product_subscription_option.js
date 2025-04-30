@@ -18,6 +18,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.JSON,
       allowNull: true
     },
+    price: {
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
     date_added: {
       type: DataTypes.DATE,
       allowNull: true
