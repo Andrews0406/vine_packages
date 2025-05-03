@@ -1,4 +1,3 @@
-const Sequelize = require('sequelize');
 module.exports = function (sequelize, DataTypes) {
   const vine_customer = sequelize.define('vine_customer', {
     customer_id: {
@@ -77,6 +76,7 @@ module.exports = function (sequelize, DataTypes) {
   vine_customer.associate = (models) => {
     vine_customer.hasMany(models.vine_address, { as: 'address', foreignKey: 'customer_id' });
     vine_customer.hasMany(models.vine_customer_plans, { as: 'cust_plan', foreignKey: 'customer_id' });
+    vine_customer.hasMany(models.vine_wallets, { as: 'wallets', foreignKey: 'customer_id' });
   };
   return vine_customer;
 };
