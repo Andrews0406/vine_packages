@@ -15,11 +15,6 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: 0.00
         },
-        currency: {
-            type: DataTypes.STRING(10),
-            allowNull: false,
-            defaultValue: 'USD'
-        },
         status: {
             type: DataTypes.ENUM('active', 'suspended', 'closed'),
             allowNull: false,
