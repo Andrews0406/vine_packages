@@ -42,20 +42,6 @@ module.exports = function (sequelize, DataTypes) {
         fields: [
           { name: "cart_subscribe_id" },
         ]
-      },
-      {
-        name: "fk_cart_customer",
-        using: "BTREE",
-        fields: [
-          { name: "customer_id" },
-        ]
-      },
-      {
-        name: "fk_cart_product",
-        using: "BTREE",
-        fields: [
-          
-        ]
       }
     ]
   });
