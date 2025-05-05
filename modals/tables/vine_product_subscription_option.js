@@ -19,11 +19,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     },
     price: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: true
     },
     product_discount: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: true
     },
     date_added: {

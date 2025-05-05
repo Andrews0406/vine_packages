@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         price: {
-            type: DataTypes.STRING(50),
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
         },
         plan_freq_id: {

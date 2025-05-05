@@ -39,11 +39,11 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         },
         balance_before: {
-            type: DataTypes.DECIMAL(12, 2),
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false
         },
         balance_after: {
-            type: DataTypes.DECIMAL(12, 2),
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false
         },
         status: {

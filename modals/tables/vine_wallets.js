@@ -35,7 +35,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true
         },
         minimum_balance: {
-            type: DataTypes.DECIMAL(12, 2),
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: false,
             defaultValue: 10.00
         },
