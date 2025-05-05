@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   return sequelize.define('vine_product_subscription_option', {
     product_subscription_option_id: {
       type: DataTypes.UUID,
@@ -19,6 +19,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     price: {
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
+    product_discount: {
       type: DataTypes.STRING(50),
       allowNull: true
     },
