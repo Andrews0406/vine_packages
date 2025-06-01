@@ -18,6 +18,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    square_customer_id: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
     phone: {
       type: DataTypes.STRING(255),
       allowNull: true
@@ -76,7 +80,7 @@ module.exports = function (sequelize, DataTypes) {
   vine_customer.associate = (models) => {
     vine_customer.hasMany(models.vine_address, { as: 'address', foreignKey: 'customer_id' });
     vine_customer.hasMany(models.vine_customer_plans, { as: 'cust_plan', foreignKey: 'customer_id' });
-    vine_customer.hasOne(models.vine_wallets, { as: 'wallets', foreignKey: 'customer_id' });
+    vine_customer.hasMany(models.vine_customer_square, { as: 'square', foreignKey: 'customer_id' });
   };
   return vine_customer;
 };
