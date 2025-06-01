@@ -62,14 +62,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    payment_method: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    payment_code: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
     shipping_place: {
       type: DataTypes.STRING(255),
       allowNull: true

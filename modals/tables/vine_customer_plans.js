@@ -22,15 +22,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DATE,
             allowNull: false
         },
+        next_plan_date: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
         plan_price: {
             type: DataTypes.STRING(50),
             allowNull: false
         },
         billing_address_id: {
-            type: DataTypes.CHAR(36),
-            allowNull: true
-        },
-        payment_method_id: {
             type: DataTypes.CHAR(36),
             allowNull: true
         },
