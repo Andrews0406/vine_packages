@@ -38,9 +38,13 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+    square_location_id: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     date_added: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: false
     },
     date_modified: {
       type: DataTypes.DATE,
