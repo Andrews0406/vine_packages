@@ -14,6 +14,19 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: true
     },
+    is_subscription: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    period: {
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
+    no_reccurs: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: true
