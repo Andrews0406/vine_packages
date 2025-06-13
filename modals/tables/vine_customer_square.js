@@ -10,13 +10,17 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.CHAR(36),
       allowNull: false
     },
+    order_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: false
+    },
     square_card_id: {
       type: DataTypes.STRING(50),
       allowNull: false
     },
     date_added: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: false
     },
     date_deleted: {
       type: DataTypes.DATE,
@@ -33,6 +37,20 @@ module.exports = function (sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "order_id",
+        using: "BTREE",
+        fields: [
+          { name: "order_id" },
+        ]
+      },
+      {
+        name: "customer_id",
+        using: "BTREE",
+        fields: [
+          { name: "customer_id" },
         ]
       },
     ]

@@ -8,23 +8,31 @@ module.exports = function (sequelize, DataTypes) {
     },
     order_id: {
       type: DataTypes.CHAR(36),
-      allowNull: true
+      allowNull: false
     },
     product_id: {
       type: DataTypes.CHAR(36),
-      allowNull: true
+      allowNull: false
     },
     customer_id: {
       type: DataTypes.CHAR(36),
-      allowNull: true
+      allowNull: false
     },
     period: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
+    },
+    no_reccurs: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     status: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     next_order_date: {
       type: DataTypes.DATE,
@@ -32,7 +40,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     date_added: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

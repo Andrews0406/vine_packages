@@ -12,15 +12,19 @@ module.exports = function (sequelize, DataTypes) {
     },
     quantity: {
       type: DataTypes.JSON,
-      allowNull: true
+      allowNull: false
     },
     period: {
       type: DataTypes.JSON,
-      allowNull: true
+      allowNull: false
+    },
+    no_reccurs: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     price: {
       type: DataTypes.DECIMAL(10, 2),
-      allowNull: true
+      allowNull: false
     },
     product_discount: {
       type: DataTypes.DECIMAL(10, 2),
@@ -28,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     date_added: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: false
     },
     date_modified: {
       type: DataTypes.DATE,
