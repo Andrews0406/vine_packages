@@ -12,7 +12,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     order_id: {
       type: DataTypes.CHAR(36),
-      allowNull: false
+      allowNull: true
+    },
+    plan_id: {
+      type: DataTypes.CHAR(36),
+      allowNull: true
     },
     square_card_id: {
       type: DataTypes.STRING(50),
