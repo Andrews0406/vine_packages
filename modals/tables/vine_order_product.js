@@ -35,6 +35,15 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
+    is_subscription: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    period: {
+      type: DataTypes.STRING(50),
+      allowNull: true
+    },
     discount_price: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: true
@@ -85,7 +94,7 @@ module.exports = function (sequelize, DataTypes) {
     ]
   });
   vine_order_product.associate = (models) => {
-    vine_order_product.hasMany(models.vine_order_product_review, { as: 'review', foreignKey: 'product_id', sourceKey: "product_id", on: { product_id: Sequelize.col('vine_order_product_review.product_id'), order_id: Sequelize.col('vine_order_product_review.order_id') } });
+    vine_order_product.hasOne(models.vine_order_product_review, { as: 'review', foreignKey: 'product_id' });
   }
   return vine_order_product;
 };
