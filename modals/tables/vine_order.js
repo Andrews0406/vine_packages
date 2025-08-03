@@ -106,6 +106,26 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: true
     },
+    shipping_timing: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    place_label: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    delivery_charge: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true
+    },
+    place_charge: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true
+    },
+    notes_charge: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true
+    },
     tracking: {
       type: DataTypes.STRING(255),
       allowNull: true
