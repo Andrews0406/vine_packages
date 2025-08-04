@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Premium - VineTomate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background-color: #e53e3e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .welcome-title {
+            color: #e53e3e;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .success-banner {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .success-text {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .plan-details {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .plan-header {
+            color: #e53e3e;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .plan-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .plan-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e53e3e;
+            margin-bottom: 10px;
+        }
+        
+        .plan-duration {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .plan-dates {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .date-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .date-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .date-value {
+            font-weight: bold;
+            color: #e53e3e;
+        }
+        
+        .benefits-container {
+            background-color: #e8f8f8;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .benefits-header {
+            color: #e53e3e;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e53e3e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .benefit-content {
+            flex: 1;
+        }
+        
+        .benefit-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .benefit-description {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .next-steps {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 25px 0;
+        }
+        
+        .next-steps h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .next-steps ul {
+            color: #856404;
+            margin-left: 20px;
+        }
+        
+        .next-steps li {
+            margin-bottom: 8px;
+        }
+        
+        .shop-button {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .plan-dates {
+                flex-direction: column;
+            }
+            
+            .date-item {
+                margin-bottom: 15px;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .benefit-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">VINE TOMATE</div>
+            <div style="font-size: 14px; opacity: 0.9;">
+                📧 support@vinetomate.ca | 📞 +1 (866) 949 - 3391
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 class="welcome-title">Welcome to Premium! 🎉</h1>
+            
+            <div class="success-banner">
+                <div class="success-icon">✨</div>
+                <div class="success-text">Membership Activated Successfully!</div>
+                <div style="font-size: 16px; opacity: 0.9;">You now have access to exclusive premium benefits</div>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 30px; color: #666; font-size: 16px;">
+                Thank you for upgrading to our Premium membership. Your exclusive benefits are now active!
+            </p>
+            
+            <div class="plan-details">
+                <div class="plan-header">📋 Your Membership Details</div>
+                
+                <div class="plan-info">
+                    <div class="plan-name">{{plan_name}}</div>
+                    <div class="plan-duration">{{plan_duration}} - ${{plan_price}}</div>
+                    
+                    <div class="plan-dates">
+                        <div class="date-item">
+                            <div class="date-label">Start Date</div>
+                            <div class="date-value">{{start_date}}</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-label">Next Billing</div>
+                            <div class="date-value">{{next_billing}}</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-label">Status</div>
+                            <div class="date-value">Active</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefits-container">
+                <div class="benefits-header">🌟 Your Premium Benefits</div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚚</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Free Delivery</div>
+                        <div class="benefit-description">Enjoy free delivery on all orders, no minimum purchase required</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Exclusive Discounts</div>
+                        <div class="benefit-description">Get up to 15% off on organic products and special member pricing</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Priority Access</div>
+                        <div class="benefit-description">First access to new products, seasonal items, and flash sales</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">👑</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Premium Support</div>
+                        <div class="benefit-description">Dedicated customer service line with faster response times</div>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎁</div>
+                    <div class="benefit-content">
+                        <div class="benefit-title">Monthly Surprises</div>
+                        <div class="benefit-description">Exclusive monthly samples and surprise offers just for members</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <h4>🚀 Ready to Start Shopping?</h4>
+                <ul>
+                    <li>Your premium discounts are automatically applied at checkout</li>
+                    <li>Free delivery is included on all orders</li>
+                    <li>Check out our new organic arrivals section</li>
+                    <li>Follow us on social media for member-exclusive flash sales</li>
+                </ul>
+            </div>
+            
+            <a href="#" class="shop-button">Start Shopping with Premium Benefits</a>
+            
+            <p style="text-align: center; color: #666; font-size: 14px; margin-top: 20px;">
+                Questions about your membership? Contact our premium support team at premium@vinetomate.ca
+            </p>
+        </div>
+        
+        <div class="footer">
+            <div style="margin-bottom: 15px;">
+                <a href="#">Manage Membership</a>
+                <a href="#">Premium Benefits</a>
+                <a href="#">Shop Now</a>
+                <a href="#">Support</a>
+            </div>
+            
+            <p style="font-size: 12px; color: #ccc;">
+                © 2025 VineTomate. All rights reserved.<br>
+                This email was sent to {{user_email}}
+            </p>
+        </div>
+    </div>
+</body>
+</html>

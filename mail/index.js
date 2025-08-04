@@ -1,67 +1,42 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
 
-//Send a normal mail
-async function sendTextMail(to, subject, text) {
+module.exports.sendAdminEmail = async (to, subject, html) => {
     try {
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
             auth: {
-                user: "umani@msystechnologies.com",
-                pass: "ivgpkpzncvutwkmv"
-            }
-        })
-        let info = await transporter.sendMail({
-            from: '"Frontier Market" <kkalimuthu@msystechnologies.com>',
-            to: to,
-            subject: subject,
-            text: text
-        })
-        transporter.close()
-        return info.messageId
-    } catch (error) {
-        throw error
+                user: process.env.EMAIL_FROM,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+        const mailOptions = { from: process.env.EMAIL_FROM, to, subject, html };
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully");
+    } catch (err) {
+        console.error("Failed to send email:", err.message);
     }
 }
 
-//Send mail with Attachements and template
-async function sendMailWithAttachmentAndTemplate(to, subject, text, filename = '', content = '', html = '') {
+module.exports.sendCustomerEmail = async (to, subject, html) => {
     try {
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
             auth: {
-                user: "umani@msystechnologies.com",
-                pass: "ivgpkpzncvutwkmv"
-            }
-        })
-        let mailInfo = {
-            from: '"Frontier Market" <kkalimuthu@msystechnologies.com>',
-            to: to,
-            subject: subject,
-            text: text,
-            html: html
-        }
-        if (filename) {
-            mailInfo['attachments'] = [
-                {
-                    filename: filename,
-                    content: content
-                }
-            ]
-        }
-        let info = await transporter.sendMail(mailInfo)
-        transporter.close()
-        return info.messageId
-    } catch (error) {
-        console.log("ERROR")
-        throw error
+                user: process.env.EMAIL_FROM,
+                pass: process.env.EMAIL_PASS,
+            },
+        });
+        const mailOptions = { from: process.env.EMAIL_FROM, to, subject, html };
+        await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully");
+    } catch (err) {
+        console.error("Failed to send email:", err.message);
     }
 }
 
-module.exports = {
-    sendTextMail,
-    sendMailWithAttachmentAndTemplate
+module.exports.getEmailTemplate = async (template, data) => {
+    const filePath = path.join(__dirname, 'templates', `${template}.html`);
+    const html = await fs.readFile(filePath, 'utf-8');
+    return html.replace(/{{(.*?)}}/g, (_, key) => data[key.trim()] || '');
 }

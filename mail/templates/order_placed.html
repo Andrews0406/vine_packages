@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - VineTomate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #e53e3e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .confirmation-title {
+            color: #e53e3e;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .order-summary {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e53e3e;
+        }
+
+        .order-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e53e3e;
+        }
+
+        .order-date {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .item-quantity {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #e53e3e;
+        }
+
+        .order-total {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .total-final {
+            border-top: 2px solid #e53e3e;
+            padding-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #e53e3e;
+        }
+
+        .delivery-info {
+            background-color: #e8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .track-button {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px 15px;
+            }
+
+            .order-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .order-number {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">VINE TOMATE</div>
+            <div style="font-size: 14px; opacity: 0.9;">
+                📧 support@vinetomate.ca | 📞 +1 (866) 949 - 3391
+            </div>
+        </div>
+
+        <div class="content">
+            <h1 class="confirmation-title">Order Confirmed! 🎉</h1>
+
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">
+                Thank you for your order! We're preparing your fresh organic products for delivery.
+            </p>
+
+            <div class="order-summary">
+                <div class="order-header">
+                    <div class="order-number">Order #{{order_number}}</div>
+                    <div class="order-date">{{order_date}}</div>
+                </div>
+
+                <div class="order-item">
+                    <div class="item-details">
+                        <div class="item-name">Organic Broccoli</div>
+                        <div class="item-quantity">Quantity: 2 lbs</div>
+                    </div>
+                    <div class="item-price">$6.99</div>
+                </div>
+
+                <div class="order-item">
+                    <div class="item-details">
+                        <div class="item-name">Fresh Tomatoes</div>
+                        <div class="item-quantity">Quantity: 1 lb</div>
+                    </div>
+                    <div class="item-price">$4.49</div>
+                </div>
+
+                <div class="order-item">
+                    <div class="item-details">
+                        <div class="item-name">Organic Ginger Root</div>
+                        <div class="item-quantity">Quantity: 0.5 lbs</div>
+                    </div>
+                    <div class="item-price">$3.99</div>
+                </div>
+
+                <div class="order-item">
+                    <div class="item-details">
+                        <div class="item-name">Bell Peppers (Mixed)</div>
+                        <div class="item-quantity">Quantity: 3 pieces</div>
+                    </div>
+                    <div class="item-price">$5.99</div>
+                </div>
+
+                <div class="order-total">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span>$21.46</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Delivery Fee:</span>
+                        <span>$4.99</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Tax (HST):</span>
+                        <span>$3.44</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total:</span>
+                        <span>$29.89</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery-info">
+                <h3 style="color: #e53e3e; margin-bottom: 15px;">📍 Delivery Information</h3>
+                <p><strong>Delivery Address:</strong><br>
+                    {{delivery_address}}</p>
+                <p style="margin-top: 10px;"><strong>Expected Delivery:</strong><br>
+                    {{delivery_date}} between {{delivery_time_window}}</p>
+                <p style="margin-top: 10px;"><strong>Payment Method:</strong><br>
+                    {{payment_method}}</p>
+            </div>
+
+            <a href="#" class="track-button">Track Your Order</a>
+
+            <p style="text-align: center; color: #666; font-size: 14px; margin-top: 20px;">
+                We'll send you updates as your order is prepared and on its way. Questions? Contact our support team!
+            </p>
+        </div>
+
+        <div class="footer">
+            <div style="margin-bottom: 15px;">
+                <a href="#">Track Order</a>
+                <a href="#">Customer Support</a>
+                <a href="#">Return Policy</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <p style="font-size: 12px; color: #ccc;">
+                © 2025 VineTomate. All rights reserved.<br>
+                This email was sent to {{user_email}}
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
