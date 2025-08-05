@@ -81,6 +81,7 @@ module.exports = function (sequelize, DataTypes) {
     vine_customer.hasMany(models.vine_address, { as: 'address', foreignKey: 'customer_id' });
     vine_customer.hasMany(models.vine_customer_plans, { as: 'cust_plan', foreignKey: 'customer_id' });
     vine_customer.hasMany(models.vine_customer_square, { as: 'square', foreignKey: 'customer_id' });
+    vine_customer.hasMany(models.vine_order, { as: 'orders', foreignKey: 'customer_id' });
   };
   return vine_customer;
 };
