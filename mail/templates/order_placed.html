@@ -33,12 +33,6 @@
             text-align: center;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
         .content {
             padding: 40px 30px;
         }
@@ -153,11 +147,8 @@
             text-align: center;
         }
 
-        .footer-links a {
+        .footer a {
             color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 14px;
         }
 
         @media (max-width: 600px) {
@@ -180,9 +171,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">VINE TOMATE</div>
+            <div class="logo">
+                <img src="https://uat.vinetomate.ca/uat_uploads/common/logo.png" alt="VineTomate Logo">
+            </div>
             <div style="font-size: 14px; opacity: 0.9;">
-                📧 support@vinetomate.ca | 📞 +1 (866) 949 - 3391
+                <a href="mailto:support@vinetomate.ca" style="color: #FFF;">support@vinetomate.ca</a> | <a href="tel:+18669493391" style="color: #FFF;">+1 (866) 949 - 3391</a>
             </div>
         </div>
 
@@ -261,10 +254,8 @@
                     {{payment_method}}</p>
             </div>
 
-            <a href="#" class="track-button">Track Your Order</a>
-
             <p style="text-align: center; color: #666; font-size: 14px; margin-top: 20px;">
-                We'll send you updates as your order is prepared and on its way. Questions? Contact our support team!
+                We'll send you updates as your order is prepared and on its way.<br> Questions? Contact our support team!
             </p>
         </div>
 
@@ -277,8 +268,7 @@
             </div>
 
             <p style="font-size: 12px; color: #ccc;">
-                © 2025 VineTomate. All rights reserved.<br>
-                This email was sent to {{user_email}}
+                © 2025 VineTomate. All rights reserved.
             </p>
         </div>
     </div>
