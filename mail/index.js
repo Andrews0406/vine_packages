@@ -1,5 +1,7 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+const fs = require('fs/promises');
+const path = require('path');
 
 module.exports.sendAdminEmail = async (to, subject, html) => {
     try {
