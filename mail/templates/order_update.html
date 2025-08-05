@@ -213,15 +213,16 @@
 
         <div class="content">
             <div class="status-banner">
-                <div class="status-icon">🚛</div>
-                <div class="status-text">Out for Delivery</div>
+                <div class="status-text">{{current_status}}</div>
+                <!-- <div class="status-text">Out for Delivery</div> -->
                 <div class="status-description">Your fresh organic products are on their way!</div>
             </div>
 
             <div class="progress-container">
                 <div class="progress-header">Order Progress</div>
 
-                <div class="progress-step">
+                {{ progress }}
+                <!-- <div class="progress-step">
                     <div class="step-icon step-completed">✓</div>
                     <div class="step-content">
                         <div class="step-title">Order Confirmed</div>
@@ -251,7 +252,7 @@
                         <div class="step-title">Delivered</div>
                         <div class="step-time">Expected: Today 4:00-6:00 PM</div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="order-details">
