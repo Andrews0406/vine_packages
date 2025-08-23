@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Delivery - VineTomate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background-color: #e53e3e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .upcoming-title {
+            color: #e53e3e;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .delivery-banner {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .delivery-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .delivery-text {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .delivery-date {
+            font-size: 18px;
+            background-color: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .delivery-details {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .details-header {
+            color: #e53e3e;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .detail-value {
+            color: #e53e3e;
+            font-weight: bold;
+        }
+        
+        .order-summary {
+            background-color: #e8f8f8;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .summary-header {
+            color: #e53e3e;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: white;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+        
+        .item-info {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .item-details {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .item-quantity {
+            color: #e53e3e;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        
+        .preparation-status {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 25px 0;
+        }
+        
+        .status-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .status-step {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+        
+        .step-completed {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .step-current {
+            background-color: #e53e3e;
+            color: white;
+        }
+        
+        .step-pending {
+            background-color: #e0e0e0;
+            color: #999;
+        }
+        
+        .step-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .modify-button {
+            display: inline-block;
+            background-color: #6c757d;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+            text-align: center;
+            width: 48%;
+            box-sizing: border-box;
+        }
+        
+        .track-button {
+            display: inline-block;
+            background-color: #e53e3e;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+            text-align: center;
+            width: 48%;
+            box-sizing: border-box;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .reminder-notice {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #17a2b8;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px 15px;
+            }
+            
+            .detail-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .detail-label {
+                margin-bottom: 5px;
+            }
+            
+            .status-steps {
+                flex-direction: column;
+            }
+            
+            .status-step {
+                margin-bottom: 20px;
+            }
+            
+            .modify-button,
+            .track-button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">VINE TOMATE</div>
+            <div style="font-size: 14px; opacity: 0.9;">
+                📧 support@vinetomate.ca | 📞 +1 (866) 949 - 3391
+            </div>
+        </div>
+        
+        <div class="content">
+            <h1 class="upcoming-title">Your Delivery is Coming Soon! 🚛</h1>
+            
+            <div class="delivery-banner">
+                <div class="delivery-icon">📦</div>
+                <div class="delivery-text">Upcoming Delivery</div>
+                <div class="delivery-date">{{delivery_date}} • {{delivery_time_window}}</div>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 30px; color: #666; font-size: 16px;">
+                Your fresh organic products are being prepared and will be delivered soon. Here's what to expect:
+            </p>
+            
+            <div class="delivery-details">
+                <div class="details-header">📍 Delivery Information</div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">📅 Delivery Date:</span>
+                    <span class="detail-value">{{delivery_date}}</span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">⏰ Time Window:</span>
+                    <span class="detail-value">{{delivery_time_window}}</span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">🏠 Address:</span>
+                    <span class="detail-value">{{delivery_address}}</span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">📦 Order #:</span>
+                    <span class="detail-value">{{order_number}}</span>
+                </div>
+            </div>
+            
+            <div class="preparation-status">
+                <h4 style="margin-bottom: 15px; color: #856404;">🔄 Current Status: Order Being Prepared</h4>
+                
+                <div class="status-steps">
+                    <div class="status-step">
+                        <div class="step-icon step-completed">✓</div>
+                        <div class="step-label">Order<br>Confirmed</div>
+                    </div>
+                    <div class="status-step">
+                        <div class="step-icon step-current">📋</div>
+                        <div class="step-label">Being<br>Prepared</div>
+                    </div>
+                    <div class="status-step">
+                        <div class="step-icon step-pending">🚛</div>
+                        <div class="step-label">Out for<br>Delivery</div>
+                    </div>
+                    <div class="status-step">
+                        <div class="step-icon step-pending">📦</div>
+                        <div class="step-label">Delivered</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-summary">
+                <div class="summary-header">🛒 Your Order Summary</div>
+                
+                <div class="order-item">
+                    <div class="item-info">
+                        <div class="item-name">Organic Broccoli</div>
+                        <div class="item-details">Fresh • 2 lbs</div>
+                    </div>
+                    <div class="item-quantity">×2</div>
+                </div>
+                
+                <div class="order-item">
+                    <div class="item-info">
+                        <div class="item-name">Cherry Tomatoes</div>
+                        <div class="item-details">Organic • 1 container</div>
+                    </div>
+                    <div class="item-quantity">×3</div>
+                </div>
+                
+                <div class="order-item">
+                    <div class="item-info">
+                        <div class="item-name">Bell Peppers</div>
+                        <div class="item-details">Mixed colors • 3 pieces</div>
+                    </div>
+                    <div class="item-quantity">×1</div>
+                </div>
+                
+                <div class="order-item">
+                    <div class="item-info">
+                        <div class="item-name">Fresh Ginger Root</div>
+                        <div class="item-details">Organic • 0.5 lbs</div>
+                    </div>
+                    <div class="item-quantity">×1</div>
+                </div>
+                
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 2px solid #e53e3e; text-align: right;">
+                    <strong style="color: #e53e3e; font-size: 16px;">Total: ${{order_total}}</strong>
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <a href="#" class="modify-button">Modify Order</a>
+                <a href="#" class="track-button">Track Order</a>
+            </div>
+            
+            <div class="reminder-notice">
+                <strong>📱 Stay Updated:</strong> We'll send you real-time notifications when your order is out for delivery and when it arrives!
+            </div>
+            
+            <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-top: 25px;">
+                <h4 style="color: #e53e3e; margin-bottom: 15px;">💡 Delivery Day Tips</h4>
+                <ul style="margin-left: 20px; color: #666;">
+                    <li>Ensure someone is available during the delivery window</li>
+                    <li>Keep your phone nearby for driver communications</li>
+                    <li>Have a safe place ready for package placement if not home</li>
+                    <li>Check perishables immediately upon delivery</li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center; color: #666; font-size: 14px; margin-top: 20px;">
+                Questions about your delivery? Contact our support team for assistance.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <div style="margin-bottom: 15px;">
+                <a href="#">Track Order</a>
+                <a href="#">Modify Delivery</a>
+                <a href="#">Customer Support</a>
+                <a href="#">Delivery Info</a>
+            </div>
+            
+            <p style="font-size: 12px; color: #ccc;">
+                © 2025 VineTomate. All rights reserved.<br>
+                This email was sent to {{user_email}}
+            </p>
+        </div>
+    </div>
+</body>
+</html>
